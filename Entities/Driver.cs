@@ -1,7 +1,11 @@
+using System.ComponentModel.DataAnnotations;
+using Microsoft.VisualBasic.CompilerServices;
+
 namespace TaxiDrivers.Entities;
 
 public class Driver
 {
+    [Key]
     public Guid id { get; set; }
     public string FirstName { get; set; }
     public string LastName { get; set; }
