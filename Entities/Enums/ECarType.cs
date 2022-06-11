@@ -1,8 +1,10 @@
 namespace TaxiDrivers.Entities.Enums;
-{
+
     public enum ECarType
     {
-        Sedan,
-        SUV,
-        Truck
+       Start,
+       Standart,
+       Comfort,
+       Bisnes,
+       Trucked,
     }
