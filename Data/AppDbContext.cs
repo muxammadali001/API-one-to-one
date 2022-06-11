@@ -10,5 +10,9 @@ public class AppDbContext : DbContext
     public DbSet<Car> Cars {get; set;}
 
     public AppDbContext(DbContextOptions<AppDbContext>  options) :base (options) {}
-    
+
+    public static implicit operator AppDbContext(AppContext v)
+    {
+        throw new NotImplementedException();
+    }
 }
