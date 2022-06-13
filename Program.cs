@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using TaxiDrivers.Data;
+using TaxiDrivers.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,7 +15,8 @@ builder.Services.AddDbContext<AppDbContext>(option =>
         option.UseSqlite("Data Source=Data/app.db");
     },ServiceLifetime.Singleton
 );
-
+builder.Services.AddSingleton<CarService>();
+builder.Services.AddSingleton<DriverService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
