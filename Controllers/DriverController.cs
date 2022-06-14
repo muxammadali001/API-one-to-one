@@ -28,10 +28,16 @@ namespace TaxiDrivers.Controllers;
             PhoneNumber = newDriver.PhoneNumber,
             Age = newDriver.Age
         };
-        var result = await _services.InsertAsync(driver);
-        var error = !result.ISucces;
+        var result = await _service.InsertAsync(driver);
+        var error = !result.IsSucces;
         var message = result.e is null ?"Success" : result.e.Message;
         return Ok(new{error, message});
+    }
+    [HttpGet("/getdrivers")]
+    public async Task<IActionResult> GetDrivers([FromForm]Guid id)
+    {
+        var drivers = await _service.GetByIdAsync(id);
+        return Ok(drivers);
     }
 
 }
