@@ -1,9 +1,9 @@
 using System.ComponentModel.DataAnnotations;
 using Microsoft.VisualBasic.CompilerServices;
 
-namespace TaxiDrivers.Entities;
+namespace TaxiDrivers.Models;
 
-public class Driver
+public class NewDriver
 {
     [Key]
     public Guid id { get; set; }
@@ -12,4 +12,4 @@ public class Driver
     public string PhoneNumber { get; set; }
     public string Age { get; set; }
 
-}   
+}    

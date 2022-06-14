@@ -47,5 +47,5 @@ public class CarService : IEntityService<Car>
     public Task<(bool ISucces, Exception e)> UpdateAsync(Car entity)
     {
         throw new NotImplementedException();
-    } //end of UpdateAsync
+    } 
 }

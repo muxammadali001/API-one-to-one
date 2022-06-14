@@ -30,8 +30,8 @@ namespace TaxiDrivers.Controllers;
         };
         var result = await _service.InsertAsync(car);
         var error = !result.ISucces;
-        var message = result.e.Message;
-        return Ok(new { error, message });
+        var message = result.e is null ?"Success" : result.e.Message;
+        return Ok(new{error, message});
     }
 
 }
