@@ -20,9 +20,18 @@ public class DriverService : IEntityService<Driver>
         throw new NotImplementedException();
     }
 
-    public Task<Driver> GetByIdAsync(Guid id)
+    public async Task<Driver> GetByIdAsync(Guid id)
     {
-        throw new NotImplementedException();
+        try
+        {
+            var driver = _context.Drivers.FirstOrDefault(d => d.Id == id);
+            return driver;
+        } 
+        catch (Exception e)
+        {
+            _logger.LogError(e.Message);
+            return null;
+        }
     }
     Task<(bool ISucces, Exception e)> IEntityService<Driver>.DeleteAsync(Guid id)
     {
@@ -45,7 +54,17 @@ public class DriverService : IEntityService<Driver>
         }  
     }
 
+    internal Task InsertAsync(Driver driver)
+    {
+        throw new NotImplementedException();
+    }
+
     Task<(bool ISucces, Exception e)> IEntityService<Driver>.UpdateAsync(Driver entity)
+    {
+        throw new NotImplementedException();
+    }
+
+    public static implicit operator DriverService(CarService v)
     {
         throw new NotImplementedException();
     }

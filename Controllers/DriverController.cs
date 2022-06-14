@@ -12,7 +12,7 @@ namespace TaxiDrivers.Controllers;
     private readonly ILogger<DriverController> _logger;
     private readonly DriverService _service;
 
-    public  DriverController(ILogger<DriverController> logger,CarService service)
+    public  DriverController(ILogger<DriverController> logger,DriverService service)
     {
         _logger = logger;
         _service = service;
@@ -23,12 +23,12 @@ namespace TaxiDrivers.Controllers;
         var driver = new Driver()
         {
             id = Guid.NewGuid(),
-            Model = newDriver.Model,
-            Color = newDriver.Color,
-            Number = newDriver.Number,
-            Type = newDriver.Type
+            FirstName = newDriver.FirstName,
+            LastName = newDriver.LastName,
+            PhoneNumber = newDriver.PhoneNumber,
+            Age = newDriver.Age
         };
-        var result = await _service.InsertAsync(driver);
+        var result = await _services.InsertAsync(driver);
         var error = !result.ISucces;
         var message = result.e is null ?"Success" : result.e.Message;
         return Ok(new{error, message});
