@@ -1,3 +1,4 @@
+using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.VisualBasic.CompilerServices;
 
@@ -12,5 +13,10 @@ public class Driver
     public string LastName { get; set; }
     public string PhoneNumber { get; set; }
     public string Age { get; set; }
+
+    [ForeignKey(nameof(CarId))]
+
+    public Car car { get; set; }
+    public Guid CarId { get; set; }
 
 }   

@@ -15,9 +15,9 @@ public class DriverService : IEntityService<Driver>
         _context = context;
     }
 
-    public Task<List<Driver>> GetAllAsync()
+    public async Task<List<Driver>> GetAllAsync()
     {
-        throw new NotImplementedException();
+        return _context.Drivers.Where(d => true).ToList(); 
     }
 
     public async Task<Driver> GetByIdAsync(Guid id)

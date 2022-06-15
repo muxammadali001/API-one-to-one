@@ -26,7 +26,8 @@ namespace TaxiDrivers.Controllers;
             FirstName = newDriver.FirstName,
             LastName = newDriver.LastName,
             PhoneNumber = newDriver.PhoneNumber,
-            Age = newDriver.Age
+            Age = newDriver.Age,
+            CarId = newDriver.CarId
         };
         var result = await _service.InsertAsync(driver);
         var error = !result.IsSuccess;
@@ -37,6 +38,12 @@ namespace TaxiDrivers.Controllers;
     public async Task<IActionResult> GetDrivers([FromQuery]Guid id)
     {
         var drivers = await _service.GetByIdAsync(id);
+        return Ok(drivers);
+    }
+    [HttpGet("/getall")]
+    public async Task<IActionResult> GetAllDriver()
+    {
+        var drivers = await _service.GetAllAsync();
         return Ok(drivers);
     }
 
