@@ -25,7 +25,7 @@ public class DriverService : IEntityService<Driver>
     {
         try
         {
-            var driver = _context.Drivers.Include(d => d.car).FirstOrDefault(d => d.Id == id);
+            var driver = _context.Drivers.FirstOrDefault(d => d.Id == id);
             return driver;
         } 
         catch (Exception e)

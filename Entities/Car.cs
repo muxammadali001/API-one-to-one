@@ -15,6 +15,8 @@ namespace TaxiDrivers.Entities;
         public Enums.ECarType Type { get; set; }
         [ForeignKey(nameof(DriverId))]
 
-        public Driver driver { get; set; }
         public Guid DriverId { get; set; }
+        [ForeignKey(nameof(DriverId))]
+        public Driver Driver { get; set; }
+
     }          
